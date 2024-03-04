@@ -12,14 +12,16 @@ def f1(params):
     def demand(x):
         return a-b*x
 
-    result = ((params[0]-c)*demand(params[0])
+    result = ((params[0]-c)*demand(params[0]))
 
-    for i in range(2, len(params)):
-        result += (params[i]-c)*(demand(params[i])-demand(params[i-1]))
-    return results
+    for i in range(1, len(params)):
+        result += ((params[i]-c)*demand(params[i]-params[i-1]))
 
 
-print(f1([100, 200, 300, 400])
+    return result
+
+
+print(f1([100, 200, 300, 400]))
 
 #result = optimize.minimize(f1, initial_guess,method="Powell")
 
