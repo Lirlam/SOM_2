@@ -32,4 +32,6 @@ if result.success:
     print("Maximized revenue: {}".format(-1*result.fun))
 else:
     raise ValueError(result.message)
+    
+    is this shit real?
 """
