@@ -27,18 +27,14 @@ initial_guess = np.array([1, 3, 6, 8 ,13])
 end_results = []
 
 for i in range(1, len(initial_guess) + 1):
-    print(list(initial_guess[:i]))
-
     bounds = [(0, None)] * len(initial_guess[:i])  # Assuming parameters are non-negative
     result = optimize.minimize(f1, initial_guess[:i], method="Powell", bounds=bounds)
-    print(result.fun *-1)
-
     end_results += [result.fun * (-1) - 50000 * len(initial_guess[:i])]
-    print(len(initial_guess[:i]))
 
-print(end_results)
+print("Gewinne:", end_results, "\n")
 
-
+print("Max Gewinn: ", max(end_results),
+      "bei ", len(initial_guess[:end_results.index(max(end_results)) + 1]), "Segmenten")
 
 # bounds = [(0, None)] * len(initial_guess)  # Assuming parameters are non-negative
 # result = optimize.minimize(f1, initial_guess, method="Powell", bounds=bounds)
