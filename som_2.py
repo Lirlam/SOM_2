@@ -9,21 +9,26 @@ c= 10
 
 # gewinnfunktion mit 2 segmenten
 def f1(params):
-    r1, r2 = params
-    # helper function demand to read out the demand for a set price
     def demand(x):
         return a-b*x
-    return -((r1-c)*demand(r1) + (r2-c)*(demand(r2)-demand(r1)))
 
-initial_guess = [2, 1]
-print(f1([2,1]))
-result = optimize.minimize(f1, initial_guess,method="Powell")
+    result = ((params[0]-c)*demand(params[0])
+    for i in range(2, len(params)):
+        result += (params[i]-c)*(demand(params[i])-demand(params[i-1]))
+    return results
+
+
+print(f1([100, 200, 300, 400])
+
+#result = optimize.minimize(f1, initial_guess,method="Powell")
 
 
 
+""""
 if result.success:
     fitted_params = result.x
     print("Optimal prices: {}".format(fitted_params))
     print("Maximized revenue: {}".format(-1*result.fun))
 else:
     raise ValueError(result.message)
+"""
