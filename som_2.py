@@ -13,6 +13,7 @@ def f1(params):
         return a-b*x
 
     result = ((params[0]-c)*demand(params[0])
+
     for i in range(2, len(params)):
         result += (params[i]-c)*(demand(params[i])-demand(params[i-1]))
     return results
