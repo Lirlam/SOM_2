@@ -10,8 +10,9 @@ a = 40000
 b = 500
 c = 10
 
-# gewinnfunktion mit 2 segmenten
+# Gewinnfunktion mit n Segmenten
 def f1(params):
+    # x = Preis, return = Nachfrage (demand)
     def demand(x):
         return a-b*x
 
@@ -25,19 +26,22 @@ def f1(params):
 
     return result * -1
 
-initial_guess = np.array([1, 3, 6, 8 ,13])
 
+initial_guess = np.array([1, 3, 6, 8 ,13])
 end_results = []
 
+# Optimierung für n Segmente, wobei n = Anzahl Elemente in initial_guess
 for i in range(1, len(initial_guess) + 1):
     bounds = [(0, None)] * len(initial_guess[:i])  # Assuming parameters are non-negative
     result = optimize.minimize(f1, initial_guess[:i], method="Powell", bounds=bounds)
     end_results += [result.fun * (-1) - 50000 * len(initial_guess[:i])]
 
+# Ausgabe der Ergebnisse
 print("Gewinne:", end_results, "\n")
 
 print("Max Gewinn: ", max(end_results),
       "bei ", len(initial_guess[:end_results.index(max(end_results)) + 1]), "Segmenten")
+
 
 # bounds = [(0, None)] * len(initial_guess)  # Assuming parameters are non-negative
 # result = optimize.minimize(f1, initial_guess, method="Powell", bounds=bounds)
