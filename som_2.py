@@ -36,10 +36,12 @@ for i in range(1, len(initial_guess) + 1):
     result = optimize.minimize(f1, initial_guess[:i], method="Powell", bounds=bounds)
     end_results += [result.fun * (-1) - 50000 * len(initial_guess[:i])]
 
-# Ausgabe der Ergebnisse
-print("Gewinne:", end_results, "\n")
+    end_results_rounded = np.round(end_results, 2)
 
-print("Max Gewinn: ", max(end_results),
+# Ausgabe der Ergebnisse
+print("Gewinne:", end_results_rounded, "\n")
+
+print("Max Gewinn: ", max(end_results_rounded),
       "bei ", len(initial_guess[:end_results.index(max(end_results)) + 1]), "Segmenten")
 
 
