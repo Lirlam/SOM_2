@@ -36,7 +36,7 @@ for i in range(1, len(initial_guess) + 1):
     result = optimize.minimize(f1, initial_guess[:i], method="Powell", bounds=bounds)
     end_results += [result.fun * (-1) - 50000 * len(initial_guess[:i])]
 
-    end_results_rounded = np.round(end_results, 2)
+end_results_rounded = np.round(end_results, 2)
 
 # Ausgabe der Ergebnisse
 print("Gewinne:", end_results_rounded, "\n")
