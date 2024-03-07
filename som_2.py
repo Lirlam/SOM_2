@@ -27,7 +27,7 @@ def f1(params):
     return result * -1
 
 
-initial_guess = np.array([1, 3, 6, 8 ,13])
+initial_guess = np.array([0, 0, 0, 0 ,0, 0, 0, 0, 0])
 end_results = []
 
 # Optimierung für n Segmente, wobei n = Anzahl Elemente in initial_guess
