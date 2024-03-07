@@ -56,3 +56,8 @@ print("Max Gewinn: ", max(end_results_rounded),
 # else:
 #     raise ValueError(result.message)
 
+
+
+# print("Optimal prices: {}".format(fitted_params
+
+
