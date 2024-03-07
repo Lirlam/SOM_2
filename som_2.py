@@ -61,3 +61,5 @@ print("Max Gewinn: ", max(end_results_rounded),
 # print("Optimal prices: {}".format(fitted_params
 
 
+## LIAM
+
