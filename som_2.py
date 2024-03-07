@@ -1,7 +1,7 @@
 #Author: Liam Decaster
 #Date: 04.03.2024
 
-
+import pandas
 import numpy as np
 import scipy.optimize as optimize
 
@@ -27,7 +27,7 @@ def f1(params):
     return result * -1
 
 
-initial_guess = np.array([0, 0, 0, 0 ,0, 0, 0, 0, 0])
+initial_guess = np.array([0, 0, 1, 3, 6])
 end_results = []
 
 # Optimierung für n Segmente, wobei n = Anzahl Elemente in initial_guess
